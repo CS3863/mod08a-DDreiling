@@ -13,19 +13,19 @@ public class UseData : MonoBehaviour
     int rowCount; //variable 
 
     private float startDelay = 2.0f;
-    private float timeInterval = 1.0f;
+    private float timeInterval = 0.25f;
     public object tempObj;
     public float tempFloat;
 
     void Awake()
     {
 
-        data = CSVReader.Read("TestCO2");//udata is the name of the csv file 
+        data = CSVReader.Read("Testxhdo");//udata is the name of the csv file 
 
         for (var i = 0; i < data.Count; i++)
         {
             //name, age, speed, description, is the headers of the database
-            print("xco2 " + data[i]["xco2"] + " ");
+            print("xhdo" + data[i]["xhdo"] + " ");
 
         }
 
@@ -45,9 +45,9 @@ public class UseData : MonoBehaviour
 
     void SpawnObject()
     {
-        tempObj = (data[rowCount]["xco2"]);
+        tempObj = (data[rowCount]["xhdo"]);
         tempFloat = System.Convert.ToSingle(tempObj);
-        tempFloat = (tempFloat - 350.0f) * 5.0f;
+        tempFloat = (tempFloat - 350.0f);
         rowCount++;
 
         transform.localScale = new Vector3(tempFloat, tempFloat, tempFloat);
